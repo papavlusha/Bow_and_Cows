@@ -108,12 +108,15 @@ void MainWindow::check() {
     if(right_all == 4) {
         edit->setReadOnly(true);
         info->setText("Игра пройдена");
-        Dialog r;
-        r.setMoves(gametable->rowCount());
-        r.setModal(true);
-        r.exec();
+        if (gametable->rowCount() < 10) {
+            Dialog r;
+            r.setMoves(gametable->rowCount());
+            r.setModal(true);
+            r.exec();
+        }
         edit->setReadOnly(true);
     }
+
 }
 
 
